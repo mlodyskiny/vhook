@@ -16,7 +16,7 @@ public:
 	VHook(T* Object) : VHook(reinterpret_cast<void*>(Object)) {}
 	~VHook();
 
-	void Add(const unsigned int Index, void* Detour);
+	void* Add(const unsigned int Index, void* Detour);
 	void Remove(const unsigned int Index);
 
 protected:
@@ -26,4 +26,5 @@ protected:
 	void** OriginalVTable = nullptr;
 	void** NewVTable = nullptr;
 	size_t NumFuncs = 0;
+
 };
