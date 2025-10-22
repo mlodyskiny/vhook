@@ -69,7 +69,7 @@ VHook::~VHook()
 	}
 }
 
-void VHook::Add(const unsigned int Index, void* Detour)
+void* VHook::Add(const unsigned int Index, void* Detour)
 {
 	if (Index >= NumFuncs)
 	{
@@ -82,6 +82,7 @@ void VHook::Add(const unsigned int Index, void* Detour)
 	}
 
 	NewVTable[Index] = Detour;
+	return OriginalVTable[Index];
 }
 
 void VHook::Remove(const unsigned int Index)
@@ -108,3 +109,4 @@ bool VHook::IsIndexHooked(const unsigned int Index)
 
 	return OriginalVTable[Index] != NewVTable[Index];
 }
+
