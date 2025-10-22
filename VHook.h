@@ -26,5 +26,5 @@ protected:
 	void** OriginalVTable = nullptr;
 	void** NewVTable = nullptr;
 	size_t NumFuncs = 0;
-
 };
+
